@@ -224,6 +224,8 @@ switch lower(opts.algorithm)
         [sol, outs] = solveTWF(A, At, b0, x0, opts);
     case 'wirtflow'
         [sol, outs] = solveWirtFlow(A, At, b0, x0, opts);
+    case 'strictwirtflow'
+        [sol, outs] = solveStrictWirtFlow(A, At, b0, x0, opts);
     otherwise
         error('Unknown algorithm "%s"', opts.algorithm);
 end

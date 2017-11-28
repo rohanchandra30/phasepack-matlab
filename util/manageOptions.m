@@ -46,7 +46,7 @@ function opts = getDefaultOpts(algorithm)
     
     opts.algorithm = algorithm;
     % Initialization method
-    opts.initMethod = 'optimal';
+    opts.initMethod = 'truncated';
     % Whether the measurements consist entirely of real numbers.
     opts.isComplex = true;
     % Whether the signal is non-negative only.
@@ -92,6 +92,9 @@ function opts = getDefaultOpts(algorithm)
     % between the true signal and the initializer
     opts.initAngle = [];
     
+    % When you want to run Strict WF using a fixed step size
+    opts.fixedStep = true;
+    
     % Remaining options are algorithm-specific
     switch lower(algorithm)
         case 'custom'
@@ -126,6 +129,8 @@ function opts = getDefaultOpts(algorithm)
         case 'phasemax'
             
         case 'phaselamp'
+            
+        case 'strictwirtflow'
         
         case 'phaselift'
             % This controls the weight of trace(X), where X=xx'  
