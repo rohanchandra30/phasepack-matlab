@@ -10,7 +10,7 @@ gradf = @(z) (abs(z).^2 - b0.^2) .* z;
 % initialize
 x_old = x0;
 t_0 = 330;
-
+residuals = [];
 
 % Start Gradient Descent
 for i=1:opts.maxIters
@@ -25,11 +25,16 @@ for i=1:opts.maxIters
     if error <= opts.tol
         break
     end
+    
     x_old = x_new;
     
+    % Record residuals for plottign convergance
+    residuals(i) = norm(At(A(x_new)-b0.*sign(A(x_new))))/norm(b0.*sign(A(x_new)));
+
 end
 x = x_new;
 outs = struct;
+outs.residuals = residuals;
 
 end
 

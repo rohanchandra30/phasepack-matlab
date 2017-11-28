@@ -38,7 +38,7 @@ fprintf('relative recon error = %d\n', reconError);
 
 % Plot a graph of error(definition depends on if opts.xt is provided) versus
 % the number of iterations.
-% plotErrorConvergence(outs, opts)
+plotErrorConvergence(outs, opts)
 
 % Plot a graph of the recovered signal x against the true signal xt.
 plotRecoveredVSOriginal(x,xt);
