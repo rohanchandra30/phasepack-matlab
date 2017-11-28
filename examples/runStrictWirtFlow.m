@@ -17,9 +17,9 @@ opts = struct;
 opts.initMethod = 'spectral';
 opts.algorithm = 'strictwirtflow';
 opts.isComplex = isComplex;
-opts.tol = 1e-5;
+opts.tol = 1e-10;
 opts.verbose = 2;
-opts.maxIters = 2000;
+opts.maxIters = 10000;
 opts.xt = xt;
 %% Try to recover x
 fprintf('Running algorithm...\n');
